@@ -1,0 +1,593 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/big_title_height"
+        android:textColor="@color/white"
+        android:textSize="@dimen/title"
+        android:gravity="center"
+        android:background="@color/colorPrimaryDark"
+        android:text="@string/title_description_of_aqi_setting"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/light_gray">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="55dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/title_tip"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/context"
+                    android:background="@drawable/top_round_corner_bg_black"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:text="@string/tip_for_aqi"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/context"
+                    android:autoLink="web"
+                    android:background="@drawable/text_box"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:text="@string/title_current_standards"
+                    android:textSize="@dimen/context"
+                    android:textColor="@color/white"
+                    android:background="@drawable/top_round_corner_bg_black"
+                    android:gravity="center" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:text="@string/level_good"
+                        android:textSize="@dimen/context"
+                        android:textColor="@color/white"
+                        android:background="@color/aqi_green"
+                        android:layout_weight="0.2"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:id="@+id/standard_good"
+                        android:layout_marginStart="1dp"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:textSize="@dimen/context"
+                        android:textColor="@color/white"
+                        android:background="@color/aqi_green"
+                        android:layout_weight="0.4"
+                        android:gravity="center" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:text="@string/level_moderate"
+                        android:textSize="@dimen/context"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:background="@color/aqi_yellow"
+                        android:layout_weight="0.2"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:id="@+id/standard_moderate"
+                        android:layout_marginStart="1dp"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:textSize="@dimen/context"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:background="@color/aqi_yellow"
+                        android:layout_weight="0.4"
+                        android:gravity="center" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:text="@string/level_poor"
+                        android:textSize="@dimen/context"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:background="@color/aqi_orange"
+                        android:layout_weight="0.2"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:id="@+id/standard_poor"
+                        android:layout_marginStart="1dp"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:textSize="@dimen/context"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:background="@color/aqi_orange"
+                        android:layout_weight="0.4"
+                        android:gravity="center" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:text="@string/level_unhealthy"
+                        android:textSize="@dimen/context"
+                        android:textColor="@color/white"
+                        android:background="@color/aqi_red"
+                        android:layout_weight="0.2"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:id="@+id/standard_unhealthy"
+                        android:layout_marginStart="1dp"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:textSize="@dimen/context"
+                        android:textColor="@color/white"
+                        android:background="@color/aqi_red"
+                        android:layout_weight="0.4"
+                        android:gravity="center" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:text="@string/level_very_unhealthy"
+                        android:textSize="@dimen/context"
+                        android:textColor="@color/white"
+                        android:background="@color/aqi_purple"
+                        android:layout_weight="0.2"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:id="@+id/standard_very_unhealthy"
+                        android:layout_marginStart="1dp"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:textSize="@dimen/context"
+                        android:textColor="@color/white"
+                        android:background="@color/aqi_purple"
+                        android:layout_weight="0.4"
+                        android:gravity="center" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:text="@string/level_hazardous"
+                        android:textSize="@dimen/context"
+                        android:textColor="@color/white"
+                        android:background="@drawable/bottom_left_round_corner_bg_dark_red"
+                        android:layout_weight="0.2"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:id="@+id/standard_hazardous"
+                        android:layout_marginStart="1dp"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:textSize="@dimen/context"
+                        android:textColor="@color/white"
+                        android:background="@drawable/bottom_right_round_corner_bg_dark_red"
+                        android:layout_weight="0.4"
+                        android:gravity="center" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/aqi_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:text="@string/title_air_pollution_level"
+                        android:textSize="@dimen/context"
+                        android:textColor="@color/white"
+                        android:background="@color/colorPrimaryDark"
+                        android:layout_weight="0.2"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:layout_marginStart="1dp"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:text="@string/title_health_implications"
+                        android:textSize="@dimen/context"
+                        android:textColor="@color/white"
+                        android:background="@color/colorPrimaryDark"
+                        android:layout_weight="0.4"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:layout_marginStart="1dp"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:text="@string/title_cautionary_statement"
+                        android:textSize="@dimen/context"
+                        android:textColor="@color/white"
+                        android:background="@color/colorPrimaryDark"
+                        android:layout_weight="0.4"
+                        android:gravity="center" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:text="@string/level_good"
+                        android:textSize="@dimen/context"
+                        android:textColor="@color/white"
+                        android:background="@color/aqi_green"
+                        android:layout_weight="0.2"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:layout_marginStart="1dp"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:text="@string/health_good"
+                        android:textSize="@dimen/context"
+                        android:textColor="@color/white"
+                        android:background="@color/aqi_green"
+                        android:layout_weight="0.4"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:layout_marginStart="1dp"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:text="@string/cautionary_good"
+                        android:textSize="@dimen/context"
+                        android:textColor="@color/white"
+                        android:background="@color/aqi_green"
+                        android:layout_weight="0.4"
+                        android:gravity="center" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:text="@string/level_moderate"
+                        android:textSize="@dimen/context"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:background="@color/aqi_yellow"
+                        android:layout_weight="0.2"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:layout_marginStart="1dp"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:text="@string/health_moderate"
+                        android:textSize="@dimen/context"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:background="@color/aqi_yellow"
+                        android:layout_weight="0.4"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:layout_marginStart="1dp"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:text="@string/cautionary_moderate"
+                        android:textSize="@dimen/context"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:background="@color/aqi_yellow"
+                        android:layout_weight="0.4"
+                        android:gravity="center" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:text="@string/level_poor"
+                        android:textSize="@dimen/context"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:background="@color/aqi_orange"
+                        android:layout_weight="0.2"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:layout_marginStart="1dp"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:text="@string/health_poor"
+                        android:textSize="@dimen/context"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:background="@color/aqi_orange"
+                        android:layout_weight="0.4"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:layout_marginStart="1dp"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:text="@string/cautionary_poor"
+                        android:textSize="@dimen/context"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:background="@color/aqi_orange"
+                        android:layout_weight="0.4"
+                        android:gravity="center" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:text="@string/level_unhealthy"
+                        android:textSize="@dimen/context"
+                        android:textColor="@color/white"
+                        android:background="@color/aqi_red"
+                        android:layout_weight="0.2"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:layout_marginStart="1dp"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:text="@string/health_unhealthy"
+                        android:textSize="@dimen/context"
+                        android:textColor="@color/white"
+                        android:background="@color/aqi_red"
+                        android:layout_weight="0.4"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:layout_marginStart="1dp"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:text="@string/cautionary_unhealthy"
+                        android:textSize="@dimen/context"
+                        android:textColor="@color/white"
+                        android:background="@color/aqi_red"
+                        android:layout_weight="0.4"
+                        android:gravity="center" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:text="@string/level_very_unhealthy"
+                        android:textSize="@dimen/context"
+                        android:textColor="@color/white"
+                        android:background="@color/aqi_purple"
+                        android:layout_weight="0.2"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:layout_marginStart="1dp"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:text="@string/health_very_unhealthy"
+                        android:textSize="@dimen/context"
+                        android:textColor="@color/white"
+                        android:background="@color/aqi_purple"
+                        android:layout_weight="0.4"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:layout_marginStart="1dp"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:text="@string/cautionary_very_healthy"
+                        android:textSize="@dimen/context"
+                        android:textColor="@color/white"
+                        android:background="@color/aqi_purple"
+                        android:layout_weight="0.4"
+                        android:gravity="center" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:text="@string/level_hazardous"
+                        android:textSize="@dimen/context"
+                        android:textColor="@color/white"
+                        android:background="@color/aqi_dark_red"
+                        android:layout_weight="0.2"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:layout_marginStart="1dp"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:text="@string/health_hazardous"
+                        android:textSize="@dimen/context"
+                        android:textColor="@color/white"
+                        android:background="@color/aqi_dark_red"
+                        android:layout_weight="0.4"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:layout_marginStart="1dp"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:text="@string/cautionary_hazardous"
+                        android:textSize="@dimen/context"
+                        android:textColor="@color/white"
+                        android:background="@color/aqi_dark_red"
+                        android:layout_weight="0.4"
+                        android:gravity="center" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

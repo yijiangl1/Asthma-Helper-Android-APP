@@ -1,0 +1,1176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/light_gray"
+    android:splitMotionEvents="false"
+    android:windowEnableSplitTouch="false">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/big_title_height"
+        android:text="@string/title_setting"
+        android:textColor="@color/white"
+        android:textSize="@dimen/title"
+        android:gravity="center"
+        android:background="@color/colorPrimaryDark"
+        tools:ignore="RtlSymmetry,SpUsage" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:overScrollMode="never">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/light_gray">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/title_height"
+                android:text="@string/title_standards"
+                android:background="@drawable/top_border_dark_bg_almost_light"
+                android:textColor="@color/dark_gray"
+                android:textSize="@dimen/context_title"
+                android:gravity="center_vertical"
+                android:paddingStart="@dimen/title_padding_left"
+                tools:ignore="RtlSymmetry,SpUsage" />
+
+            <com.liuyijiang.asthmahelper.tool.SettingTitleView
+                android:id="@+id/setting_aqi"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/second_title_height"
+                android:paddingStart="@dimen/second_title_padding_left"
+                android:paddingEnd="@dimen/second_title_padding_right"
+                android:gravity="center_vertical"
+                android:background="@color/white"
+                android:text="@string/title_aqi"
+                android:textSize="@dimen/context_title"
+                android:textColor="@color/black"
+                android:drawablePadding="@dimen/second_title_icon_padding"
+                app:drawable_src_left="@mipmap/air_pollution"
+                app:drawable_width_left="@dimen/second_title_icon_width"
+                app:drawable_height_left="@dimen/second_title_icon_height"
+                app:drawable_src_right="@mipmap/arrow_right"
+                app:drawable_width_right="@dimen/arrow_size"
+                app:drawable_height_right="@dimen/arrow_size"
+                tools:ignore="SpUsage" />
+
+            <RelativeLayout
+                android:id="@+id/list_air_pollution"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/top_border_second_light_bg_light"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/list_button_bar_height"
+                    android:orientation="horizontal"
+                    android:layout_marginStart="@dimen/child_list_margin_start"
+                    android:layout_marginTop="@dimen/button_bar_margin_top"
+                    android:paddingStart="@dimen/list_padding_left"
+                    android:paddingEnd="@dimen/list_padding_right"
+                    android:paddingTop="@dimen/list_padding_top"
+                    android:background="@drawable/left_border_second_light_bg_white"
+                    tools:ignore="RtlSymmetry">
+
+                    <Button
+                        android:id="@+id/specification_aqi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/specification"
+                        android:layout_weight="1"
+                        tools:ignore="ButtonStyle" />
+
+                    <Button
+                        android:id="@+id/reset_aqi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/reset"
+                        android:layout_marginStart="@dimen/buttons_margin"
+                        android:layout_weight="1"
+                        tools:ignore="ButtonStyle" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/seek_bar_layout_height"
+                    android:orientation="horizontal"
+                    android:layout_marginStart="@dimen/child_list_margin_start"
+                    android:layout_marginTop="@dimen/first_bar_margin_top"
+                    android:paddingStart="@dimen/list_padding_left"
+                    android:background="@drawable/left_border_second_light_bg_white"
+                    android:gravity="center_vertical"
+                    tools:ignore="RtlSymmetry">
+
+                    <TextView
+                        android:layout_width="@dimen/bar_tag_aqi"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:layout_marginStart="@dimen/seek_bar_text_margin_left"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/context"
+                        android:text="@string/air_pollution_level_good"
+                        tools:ignore="SpUsage" />
+
+                    <com.liuyijiang.asthmahelper.tool.ExtraSeekBar
+                        android:id="@+id/bar_aqi_good"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="@dimen/seek_bar_margin_left"
+                        android:progressDrawable="@drawable/seek_bar_blue"
+                        android:minHeight="@dimen/wide_line"
+                        android:maxHeight="@dimen/wide_line"
+                        app:start_point="25"
+                        android:progress="25"
+                        android:max="50"
+                        app:num_tag_id="@id/num_tag_aqi_good"
+                        app:slide_bar_id="@id/num_tag_aqi_good_slide_bar" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/seek_bar_layout_height"
+                    android:orientation="horizontal"
+                    android:layout_marginStart="@dimen/child_list_margin_start"
+                    android:layout_marginTop="@dimen/second_bar_margin_top"
+                    android:paddingStart="@dimen/list_padding_left"
+                    android:background="@drawable/left_border_second_light_bg_white"
+                    android:gravity="center_vertical"
+                    tools:ignore="RtlSymmetry">
+
+                    <TextView
+                        android:layout_width="@dimen/bar_tag_aqi"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:layout_marginStart="@dimen/seek_bar_text_margin_left"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/context"
+                        android:text="@string/air_pollution_level_moderate"
+                        tools:ignore="SpUsage" />
+
+                    <com.liuyijiang.asthmahelper.tool.ExtraSeekBar
+                        android:id="@+id/bar_aqi_moderate"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="@dimen/seek_bar_margin_left"
+                        android:progressDrawable="@drawable/seek_bar_blue"
+                        android:minHeight="@dimen/wide_line"
+                        android:maxHeight="@dimen/wide_line"
+                        app:start_point="75"
+                        android:progress="25"
+                        android:max="50"
+                        app:num_tag_id="@id/num_tag_aqi_moderate"
+                        app:slide_bar_id="@id/num_tag_aqi_moderate_slide_bar" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/seek_bar_layout_height"
+                    android:orientation="horizontal"
+                    android:layout_marginStart="@dimen/child_list_margin_start"
+                    android:layout_marginTop="@dimen/third_bar_margin_top"
+                    android:paddingStart="@dimen/list_padding_left"
+                    android:background="@drawable/left_border_second_light_bg_white"
+                    android:gravity="center_vertical"
+                    tools:ignore="RtlSymmetry">
+
+                    <TextView
+                        android:layout_width="@dimen/bar_tag_aqi"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:layout_marginStart="@dimen/seek_bar_text_margin_left"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/context"
+                        android:text="@string/air_pollution_level_poor"
+                        tools:ignore="SpUsage" />
+
+                    <com.liuyijiang.asthmahelper.tool.ExtraSeekBar
+                        android:id="@+id/bar_aqi_poor"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="@dimen/seek_bar_margin_left"
+                        android:progressDrawable="@drawable/seek_bar_blue"
+                        android:minHeight="@dimen/wide_line"
+                        android:maxHeight="@dimen/wide_line"
+                        app:start_point="125"
+                        android:progress="25"
+                        android:max="50"
+                        app:num_tag_id="@id/num_tag_aqi_poor"
+                        app:slide_bar_id="@id/num_tag_aqi_poor_slide_bar" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/seek_bar_layout_height"
+                    android:orientation="horizontal"
+                    android:layout_marginStart="@dimen/child_list_margin_start"
+                    android:layout_marginTop="@dimen/forth_bar_margin_top"
+                    android:paddingStart="@dimen/list_padding_left"
+                    android:background="@drawable/left_border_second_light_bg_white"
+                    android:gravity="center_vertical"
+                    tools:ignore="RtlSymmetry">
+
+                    <TextView
+                        android:layout_width="@dimen/bar_tag_aqi"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:layout_marginStart="@dimen/seek_bar_text_margin_left"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/context"
+                        android:text="@string/air_pollution_level_unhealthy"
+                        tools:ignore="SpUsage" />
+
+                    <com.liuyijiang.asthmahelper.tool.ExtraSeekBar
+                        android:id="@+id/bar_aqi_unhealthy"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="@dimen/seek_bar_margin_left"
+                        android:progressDrawable="@drawable/seek_bar_blue"
+                        android:minHeight="@dimen/wide_line"
+                        android:maxHeight="@dimen/wide_line"
+                        app:start_point="175"
+                        android:progress="25"
+                        android:max="50"
+                        app:num_tag_id="@id/num_tag_aqi_unhealthy"
+                        app:slide_bar_id="@id/num_tag_aqi_unhealthy_slide_bar" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/last_seek_bar_layout_height"
+                    android:orientation="horizontal"
+                    android:layout_marginStart="@dimen/child_list_margin_start"
+                    android:layout_marginTop="@dimen/fifth_bar_margin_top"
+                    android:paddingStart="@dimen/list_padding_left"
+                    android:paddingBottom="@dimen/last_seek_bar_padding_bottom"
+                    android:background="@drawable/left_border_second_light_bg_white"
+                    android:gravity="center_vertical"
+                    tools:ignore="RtlSymmetry">
+
+                    <TextView
+                        android:layout_width="@dimen/bar_tag_aqi"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:layout_marginStart="@dimen/seek_bar_text_margin_left"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/context"
+                        android:text="@string/air_pollution_level_very_unhealthy"
+                        tools:ignore="SpUsage" />
+
+                    <com.liuyijiang.asthmahelper.tool.ExtraSeekBar
+                        android:id="@+id/bar_aqi_very_unhealthy"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="@dimen/seek_bar_margin_left"
+                        android:progressDrawable="@drawable/seek_bar_blue"
+                        android:minHeight="@dimen/wide_line"
+                        android:maxHeight="@dimen/wide_line"
+                        app:start_point="275"
+                        android:progress="25"
+                        android:max="50"
+                        app:num_tag_id="@id/num_tag_aqi_very_unhealthy"
+                        app:slide_bar_id="@id/num_tag_aqi_very_unhealthy_slide_bar" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/num_tag_aqi_good_slide_bar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="@dimen/first_slide_bar_margin_top"
+                    android:layout_marginStart="@dimen/slide_bar_margin_left"
+                    android:layout_marginEnd="@dimen/slide_bar_margin_right">
+
+                    <TextView
+                        android:id="@+id/num_tag_aqi_good"
+                        android:visibility="invisible"
+                        android:layout_width="30dp"
+                        android:layout_height="28dp"
+                        android:background="@mipmap/bar_tag"
+                        android:gravity="center_horizontal"
+                        android:paddingTop="2dp"
+                        android:textSize="@dimen/hint"
+                        android:textColor="@color/white"
+                        tools:ignore="SpUsage" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/num_tag_aqi_moderate_slide_bar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="@dimen/second_slide_bar_margin_top"
+                    android:layout_marginStart="@dimen/slide_bar_margin_left"
+                    android:layout_marginEnd="@dimen/slide_bar_margin_right">
+
+                    <TextView
+                        android:id="@+id/num_tag_aqi_moderate"
+                        android:visibility="invisible"
+                        android:layout_width="30dp"
+                        android:layout_height="28dp"
+                        android:background="@mipmap/bar_tag"
+                        android:gravity="center_horizontal"
+                        android:paddingTop="2dp"
+                        android:textSize="@dimen/hint"
+                        android:textColor="@color/white"
+                        tools:ignore="SpUsage" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/num_tag_aqi_poor_slide_bar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="@dimen/third_slide_bar_margin_top"
+                    android:layout_marginStart="@dimen/slide_bar_margin_left"
+                    android:layout_marginEnd="@dimen/slide_bar_margin_right">
+
+                    <TextView
+                        android:id="@+id/num_tag_aqi_poor"
+                        android:visibility="invisible"
+                        android:layout_width="30dp"
+                        android:layout_height="28dp"
+                        android:background="@mipmap/bar_tag"
+                        android:gravity="center_horizontal"
+                        android:paddingTop="2dp"
+                        android:textSize="@dimen/hint"
+                        android:textColor="@color/white"
+                        tools:ignore="SpUsage" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/num_tag_aqi_unhealthy_slide_bar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="@dimen/forth_slide_bar_margin_top"
+                    android:layout_marginStart="@dimen/slide_bar_margin_left"
+                    android:layout_marginEnd="@dimen/slide_bar_margin_right">
+
+                    <TextView
+                        android:id="@+id/num_tag_aqi_unhealthy"
+                        android:visibility="invisible"
+                        android:layout_width="30dp"
+                        android:layout_height="28dp"
+                        android:background="@mipmap/bar_tag"
+                        android:gravity="center_horizontal"
+                        android:paddingTop="2dp"
+                        android:textSize="@dimen/hint"
+                        android:textColor="@color/white"
+                        tools:ignore="SpUsage" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/num_tag_aqi_very_unhealthy_slide_bar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="@dimen/fifth_slide_bar_margin_top"
+                    android:layout_marginStart="@dimen/slide_bar_margin_left"
+                    android:layout_marginEnd="@dimen/slide_bar_margin_right">
+
+                    <TextView
+                        android:id="@+id/num_tag_aqi_very_unhealthy"
+                        android:visibility="invisible"
+                        android:layout_width="30dp"
+                        android:layout_height="28dp"
+                        android:background="@mipmap/bar_tag"
+                        android:gravity="center_horizontal"
+                        android:paddingTop="2dp"
+                        android:textSize="@dimen/hint"
+                        android:textColor="@color/white"
+                        tools:ignore="SpUsage" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <com.liuyijiang.asthmahelper.tool.SettingTitleView
+                android:id="@+id/setting_pollen_count"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/second_title_height"
+                android:paddingStart="@dimen/second_title_padding_left"
+                android:paddingEnd="@dimen/second_title_padding_right"
+                android:gravity="center_vertical"
+                android:background="@drawable/top_border_dark_bg_white"
+                android:text="@string/title_pollen_count"
+                android:textSize="@dimen/context_title"
+                android:textColor="@color/black"
+                android:drawablePadding="@dimen/second_title_icon_padding"
+                app:drawable_src_left="@mipmap/pollen"
+                app:drawable_width_left="@dimen/second_title_icon_width"
+                app:drawable_height_left="@dimen/second_title_icon_height"
+                app:drawable_src_right="@mipmap/arrow_right"
+                app:drawable_width_right="@dimen/arrow_size"
+                app:drawable_height_right="@dimen/arrow_size"
+                tools:ignore="SpUsage" />
+
+            <RelativeLayout
+                android:id="@+id/list_pollen_count"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/top_border_second_light_bg_light"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/list_button_bar_height"
+                    android:orientation="horizontal"
+                    android:layout_marginStart="@dimen/child_list_margin_start"
+                    android:layout_marginTop="@dimen/button_bar_margin_top"
+                    android:paddingStart="@dimen/list_padding_left"
+                    android:paddingEnd="@dimen/list_padding_right"
+                    android:paddingTop="@dimen/list_padding_top"
+                    android:background="@drawable/left_border_second_light_bg_white"
+                    tools:ignore="RtlSymmetry">
+
+                    <Button
+                        android:id="@+id/specification_pollen_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/specification"
+                        android:layout_weight="1"
+                        tools:ignore="ButtonStyle" />
+
+                    <Button
+                        android:id="@+id/reset_pollen_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/reset"
+                        android:layout_marginStart="@dimen/buttons_margin"
+                        android:layout_weight="1"
+                        tools:ignore="ButtonStyle" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/seek_bar_layout_height"
+                    android:orientation="horizontal"
+                    android:layout_marginStart="@dimen/child_list_margin_start"
+                    android:layout_marginTop="@dimen/first_bar_margin_top"
+                    android:paddingStart="@dimen/list_padding_left"
+                    android:background="@drawable/left_border_second_light_bg_white"
+                    android:gravity="center_vertical"
+                    tools:ignore="RtlSymmetry">
+
+                    <TextView
+                        android:layout_width="@dimen/bar_tag_aqi"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:layout_marginStart="@dimen/seek_bar_text_margin_left"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/context"
+                        android:text="@string/pollen_count_level_low"
+                        tools:ignore="SpUsage" />
+
+                    <com.liuyijiang.asthmahelper.tool.ExtraSeekBar
+                        android:id="@+id/bar_pollen_count_low"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="@dimen/seek_bar_margin_left"
+                        android:progressDrawable="@drawable/seek_bar_blue"
+                        android:minHeight="@dimen/wide_line"
+                        android:maxHeight="@dimen/wide_line"
+                        app:start_point="25"
+                        android:progress="25"
+                        android:max="50"
+                        app:num_tag_id="@id/num_tag_pollen_count_low"
+                        app:slide_bar_id="@id/num_tag_pollen_count_low_slide_bar" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/seek_bar_layout_height"
+                    android:orientation="horizontal"
+                    android:layout_marginStart="@dimen/child_list_margin_start"
+                    android:layout_marginTop="@dimen/second_bar_margin_top"
+                    android:paddingStart="@dimen/list_padding_left"
+                    android:background="@drawable/left_border_second_light_bg_white"
+                    android:gravity="center_vertical"
+                    tools:ignore="RtlSymmetry">
+
+                    <TextView
+                        android:layout_width="@dimen/bar_tag_aqi"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:layout_marginStart="@dimen/seek_bar_text_margin_left"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/context"
+                        android:text="@string/pollen_count_level_medium"
+                        tools:ignore="SpUsage" />
+
+                    <com.liuyijiang.asthmahelper.tool.ExtraSeekBar
+                        android:id="@+id/bar_pollen_count_medium"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="@dimen/seek_bar_margin_left"
+                        android:progressDrawable="@drawable/seek_bar_blue"
+                        android:minHeight="@dimen/wide_line"
+                        android:maxHeight="@dimen/wide_line"
+                        app:start_point="75"
+                        android:progress="25"
+                        android:max="50"
+                        app:num_tag_id="@id/num_tag_pollen_count_medium"
+                        app:slide_bar_id="@id/num_tag_pollen_count_medium_slide_bar" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/last_seek_bar"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/last_seek_bar_layout_height"
+                    android:orientation="horizontal"
+                    android:layout_marginStart="@dimen/child_list_margin_start"
+                    android:layout_marginTop="@dimen/third_bar_margin_top"
+                    android:paddingStart="@dimen/list_padding_left"
+                    android:paddingBottom="@dimen/last_seek_bar_padding_bottom"
+                    android:background="@drawable/left_border_second_light_bg_white"
+                    android:gravity="center_vertical"
+                    tools:ignore="RtlSymmetry">
+
+                    <TextView
+                        android:layout_width="@dimen/bar_tag_aqi"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:layout_marginStart="@dimen/seek_bar_text_margin_left"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/context"
+                        android:text="@string/pollen_count_level_high"
+                        tools:ignore="SpUsage" />
+
+                    <com.liuyijiang.asthmahelper.tool.ExtraSeekBar
+                        android:id="@+id/bar_pollen_count_high"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/seek_bar_margin_left"
+                        android:progressDrawable="@drawable/seek_bar_blue"
+                        android:minHeight="@dimen/wide_line"
+                        android:maxHeight="@dimen/wide_line"
+                        app:start_point="155"
+                        android:progress="25"
+                        android:max="50"
+                        app:num_tag_id="@id/num_tag_pollen_count_high"
+                        app:slide_bar_id="@id/num_tag_pollen_count_high_slide_bar" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/num_tag_pollen_count_low_slide_bar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="@dimen/first_slide_bar_margin_top"
+                    android:layout_marginStart="@dimen/slide_bar_margin_left"
+                    android:layout_marginEnd="@dimen/slide_bar_margin_right">
+
+                    <TextView
+                        android:id="@+id/num_tag_pollen_count_low"
+                        android:visibility="invisible"
+                        android:layout_width="30dp"
+                        android:layout_height="28dp"
+                        android:background="@mipmap/bar_tag"
+                        android:gravity="center_horizontal"
+                        android:paddingTop="2dp"
+                        android:textSize="@dimen/hint"
+                        android:textColor="@color/white"
+                        tools:ignore="SpUsage" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/num_tag_pollen_count_medium_slide_bar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="@dimen/second_slide_bar_margin_top"
+                    android:layout_marginStart="@dimen/slide_bar_margin_left"
+                    android:layout_marginEnd="@dimen/slide_bar_margin_right">
+
+                    <TextView
+                        android:id="@+id/num_tag_pollen_count_medium"
+                        android:visibility="invisible"
+                        android:layout_width="30dp"
+                        android:layout_height="28dp"
+                        android:background="@mipmap/bar_tag"
+                        android:gravity="center_horizontal"
+                        android:paddingTop="2dp"
+                        android:textSize="@dimen/hint"
+                        android:textColor="@color/white"
+                        tools:ignore="SpUsage" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/num_tag_pollen_count_high_slide_bar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="@dimen/third_slide_bar_margin_top"
+                    android:layout_marginStart="@dimen/slide_bar_margin_left"
+                    android:layout_marginEnd="@dimen/slide_bar_margin_right">
+
+                    <TextView
+                        android:id="@+id/num_tag_pollen_count_high"
+                        android:visibility="invisible"
+                        android:layout_width="30dp"
+                        android:layout_height="28dp"
+                        android:background="@mipmap/bar_tag"
+                        android:gravity="center_horizontal"
+                        android:paddingTop="2dp"
+                        android:textSize="@dimen/hint"
+                        android:textColor="@color/white"
+                        tools:ignore="SpUsage" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/almost_light_gray"
+                    android:layout_alignParentBottom="true"
+                    android:layout_below="@+id/last_seek_bar"/>
+
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/title_height"
+                android:text="@string/title_preferences"
+                android:background="@drawable/top_border_dark_bg_almost_light"
+                android:textColor="@color/dark_gray"
+                android:textSize="@dimen/context_title"
+                android:gravity="center_vertical"
+                android:paddingStart="@dimen/title_padding_left"
+                tools:ignore="RtlSymmetry,SpUsage" />
+
+            <com.liuyijiang.asthmahelper.tool.SettingTitleView
+                android:id="@+id/setting_addresses"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/second_title_height"
+                android:paddingStart="@dimen/second_title_padding_left"
+                android:paddingEnd="@dimen/second_title_padding_right"
+                android:gravity="center_vertical"
+                android:background="@color/white"
+                android:text="@string/setting_addresses"
+                android:textSize="@dimen/context_title"
+                android:textColor="@color/black"
+                android:drawablePadding="@dimen/second_title_icon_padding"
+                app:drawable_src_left="@mipmap/address"
+                app:drawable_width_left="@dimen/second_title_icon_width"
+                app:drawable_height_left="@dimen/second_title_icon_height"
+                app:drawable_src_right="@mipmap/arrow_right"
+                app:drawable_width_right="@dimen/arrow_size"
+                app:drawable_height_right="@dimen/arrow_size"
+                tools:ignore="SpUsage" />
+
+            <RelativeLayout
+                android:id="@+id/list_frequently_used_addresses"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/top_border_second_light_bg_light"
+                android:paddingStart="@dimen/child_list_margin_start"
+                android:paddingTop="@dimen/medium_line"
+                android:visibility="gone"
+                tools:ignore="RtlSymmetry">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white">
+
+                    <ImageView
+                        android:id="@+id/address1_minus"
+                        android:layout_width="32dp"
+                        android:layout_height="@dimen/list_no_disturbing_time_layout_height"
+                        android:src="@drawable/minus_click"
+                        android:paddingStart="4dp"
+                        android:paddingEnd="4dp"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:layout_marginEnd="11dp"
+                        android:layout_alignParentEnd="true"
+                        tools:ignore="ContentDescription" />
+
+                    <ImageView
+                        android:id="@+id/address1_plus"
+                        android:layout_width="32dp"
+                        android:layout_height="@dimen/list_no_disturbing_time_layout_height"
+                        android:src="@drawable/plus_click"
+                        android:paddingStart="4dp"
+                        android:paddingEnd="4dp"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:layout_toStartOf="@+id/address1_minus"
+                        android:background="@drawable/image_click"
+                        android:visibility="invisible"
+                        tools:ignore="ContentDescription" />
+
+                    <TextView
+                        android:id="@+id/address1"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/list_no_disturbing_time_layout_height"
+                        android:gravity="center_vertical"
+                        android:paddingStart="21dp"
+                        android:paddingEnd="20dp"
+                        android:textColor="@color/second_light_gray"
+                        android:textSize="@dimen/context"
+                        android:text="@string/frequently_used_addresses_tip"
+                        android:background="@drawable/left_border_second_light_bg_white"
+                        android:layout_toStartOf="@+id/address1_plus"
+                        android:ellipsize="end"
+                        tools:ignore="SpUsage" />
+
+                    <TextView
+                        android:id="@+id/address_separator1"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/medium_line"
+                        android:layout_below="@+id/address1"
+                        android:background="@drawable/left_border_second_light_bg_light"
+                        android:visibility="gone"/>
+
+                    <ImageView
+                        android:id="@+id/address2_minus"
+                        android:layout_width="32dp"
+                        android:layout_height="@dimen/list_no_disturbing_time_layout_height"
+                        android:src="@drawable/minus_click"
+                        android:paddingStart="4dp"
+                        android:paddingEnd="4dp"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:layout_marginEnd="11dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_below="@+id/address_separator1"
+                        android:visibility="gone"
+                        tools:ignore="ContentDescription" />
+
+                    <ImageView
+                        android:id="@+id/address2_plus"
+                        android:layout_width="32dp"
+                        android:layout_height="@dimen/list_no_disturbing_time_layout_height"
+                        android:src="@drawable/plus_click"
+                        android:paddingStart="4dp"
+                        android:paddingEnd="4dp"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:layout_toStartOf="@+id/address2_minus"
+                        android:background="@drawable/image_click"
+                        android:layout_below="@+id/address_separator1"
+                        android:visibility="gone"
+                        tools:ignore="ContentDescription" />
+
+                    <TextView
+                        android:id="@+id/address2"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/list_no_disturbing_time_layout_height"
+                        android:layout_below="@+id/address_separator1"
+                        android:gravity="center_vertical"
+                        android:paddingStart="21dp"
+                        android:paddingEnd="20dp"
+                        android:textColor="@color/second_light_gray"
+                        android:textSize="@dimen/context"
+                        android:text="@string/frequently_used_addresses_tip"
+                        android:background="@drawable/left_border_second_light_bg_white"
+                        android:layout_toStartOf="@+id/address1_plus"
+                        android:ellipsize="end"
+                        android:visibility="gone"
+                        tools:ignore="SpUsage" />
+
+                    <TextView
+                        android:id="@+id/address_separator2"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/medium_line"
+                        android:layout_below="@id/address2"
+                        android:background="@drawable/left_border_second_light_bg_light"
+                        android:visibility="gone"/>
+
+                    <ImageView
+                        android:id="@+id/address3_minus"
+                        android:layout_width="32dp"
+                        android:layout_height="@dimen/list_no_disturbing_time_layout_height"
+                        android:src="@drawable/minus_click"
+                        android:paddingStart="4dp"
+                        android:paddingEnd="4dp"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:layout_marginEnd="11dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_below="@+id/address_separator2"
+                        android:visibility="gone"
+                        tools:ignore="ContentDescription" />
+
+                    <TextView
+                        android:id="@+id/address3"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/list_no_disturbing_time_layout_height"
+                        android:layout_below="@+id/address_separator2"
+                        android:gravity="center_vertical"
+                        android:paddingStart="21dp"
+                        android:paddingEnd="20dp"
+                        android:textColor="@color/second_light_gray"
+                        android:textSize="@dimen/context"
+                        android:text="@string/frequently_used_addresses_tip"
+                        android:background="@drawable/left_border_second_light_bg_white"
+                        android:layout_toStartOf="@+id/address1_plus"
+                        android:ellipsize="end"
+                        android:visibility="gone"
+                        tools:ignore="SpUsage" />
+
+                <!--<ImageView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:gravity="center_vertical"-->
+                    <!--android:layout_alignParentEnd="true"-->
+                    <!--android:textColor="@drawable/text_color_click"-->
+                    <!--android:textSize="@dimen/context"-->
+                    <!--android:text="@string/default_start_time"-->
+                    <!--tools:ignore="RelativeOverlap,SpUsage" />-->
+
+                <!--<LinearLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="@dimen/list_no_disturbing_time_layout_height"-->
+                    <!--android:layout_marginStart="@dimen/child_list_margin_start"-->
+                    <!--android:layout_marginTop="@dimen/medium_line"-->
+                    <!--android:paddingStart="@dimen/list_padding_left"-->
+                    <!--android:paddingEnd="@dimen/list_padding_right"-->
+                    <!--tools:ignore="RtlSymmetry">-->
+
+                    <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="match_parent"-->
+                        <!--android:gravity="center_vertical"-->
+                        <!--android:layout_marginStart="@dimen/seek_bar_text_margin_left"-->
+                        <!--android:textColor="@drawable/text_color_click"-->
+                        <!--android:textSize="@dimen/context"-->
+                        <!--android:text="@string/tag_start_time"-->
+                        <!--tools:ignore="SpUsage" />-->
+
+                    <!--<ImageView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="match_parent"-->
+                        <!--android:gravity="center_vertical"-->
+                        <!--android:layout_alignParentEnd="true"-->
+                        <!--android:textColor="@drawable/text_color_click"-->
+                        <!--android:textSize="@dimen/context"-->
+                        <!--android:text="@string/default_start_time"-->
+                        <!--tools:ignore="RelativeOverlap,SpUsage" />-->
+
+                <!--</LinearLayout>-->
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/second_title_height"
+                android:orientation="horizontal"
+                android:paddingEnd="@dimen/second_title_padding_right"
+                android:background="@drawable/top_border_dark_bg_white"
+                tools:ignore="RtlSymmetry">
+
+                <com.liuyijiang.asthmahelper.tool.SettingTitleView
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/second_title_height"
+                    android:paddingStart="@dimen/second_title_padding_left"
+                    android:gravity="center_vertical"
+                    android:text="@string/title_notification"
+                    android:textSize="@dimen/context_title"
+                    android:textColor="@color/black"
+                    android:drawablePadding="@dimen/second_title_icon_padding"
+                    app:drawable_src_left="@mipmap/notification"
+                    app:drawable_width_left="@dimen/second_title_icon_width"
+                    app:drawable_height_left="@dimen/second_title_icon_height"
+                    android:layout_weight="1"
+                    tools:ignore="SpUsage" />
+
+                <Switch
+                    android:id="@+id/switch_notification"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:track="@drawable/switch_bar"
+                    android:thumb="@drawable/switch_thumb"
+                    android:textOn=""
+                    android:textOff=""
+                    android:switchMinWidth="10dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/second_title_height"
+                android:orientation="horizontal"
+                android:paddingEnd="@dimen/second_title_padding_right"
+                android:background="@drawable/top_border_dark_bg_white"
+                tools:ignore="RtlSymmetry">
+
+                <com.liuyijiang.asthmahelper.tool.SettingTitleView
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/second_title_height"
+                    android:paddingStart="@dimen/second_title_padding_left"
+                    android:paddingTop="@dimen/wide_line"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/top_border_dark_bg_white"
+                    android:text="@string/title_no_disturbing_time"
+                    android:textSize="@dimen/context_title"
+                    android:textColor="@color/black"
+                    android:drawablePadding="@dimen/second_title_icon_padding"
+                    app:drawable_src_left="@mipmap/clock"
+                    app:drawable_width_left="@dimen/second_title_icon_width"
+                    app:drawable_height_left="@dimen/second_title_icon_height"
+                    android:layout_weight="1"
+                    tools:ignore="SpUsage" />
+
+                <Switch
+                    android:id="@+id/switch_no_disturbing_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:track="@drawable/switch_bar"
+                    android:thumb="@drawable/switch_thumb"
+                    android:textOn=""
+                    android:textOff=""
+                    android:switchMinWidth="10dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/list_no_disturbing_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/top_border_second_light_bg_light"
+                android:visibility="gone"
+                tools:ignore="RtlSymmetry">
+
+                <RelativeLayout
+                    android:id="@+id/start_no_disturbing"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/list_no_disturbing_time_layout_height"
+                    android:layout_marginStart="@dimen/child_list_margin_start"
+                    android:layout_marginTop="@dimen/medium_line"
+                    android:paddingStart="@dimen/list_padding_left"
+                    android:paddingEnd="@dimen/list_padding_right"
+                    android:background="@drawable/bg_list_click"
+                    tools:ignore="RtlSymmetry">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:layout_marginStart="@dimen/seek_bar_text_margin_left"
+                        android:textColor="@drawable/text_color_click"
+                        android:textSize="@dimen/context"
+                        android:text="@string/tag_start_time"
+                        tools:ignore="SpUsage" />
+
+                    <TextView
+                        android:id="@+id/text_start_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:layout_alignParentEnd="true"
+                        android:textColor="@drawable/text_color_click_light"
+                        android:textSize="@dimen/context"
+                        android:text="@string/default_start_time"
+                        tools:ignore="RelativeOverlap,SpUsage" />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/medium_line"
+                    android:layout_marginStart="@dimen/child_list_margin_start"
+                    android:background="@drawable/left_border_second_light_bg_light"/>
+
+                <RelativeLayout
+                    android:id="@+id/end_no_disturbing"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/list_no_disturbing_time_layout_height"
+                    android:layout_marginStart="@dimen/child_list_margin_start"
+                    android:paddingStart="@dimen/list_padding_left"
+                    android:paddingEnd="@dimen/list_padding_right"
+                    android:background="@drawable/bg_list_click"
+                    tools:ignore="RtlSymmetry">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:layout_marginStart="@dimen/seek_bar_text_margin_left"
+                        android:textColor="@drawable/text_color_click"
+                        android:textSize="@dimen/context"
+                        android:text="@string/tag_end_time"
+                        tools:ignore="SpUsage" />
+
+                    <TextView
+                        android:id="@+id/text_end_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:layout_alignParentEnd="true"
+                        android:textColor="@drawable/text_color_click_light"
+                        android:textSize="@dimen/context"
+                        android:text="@string/default_end_time"
+                        tools:ignore="RelativeOverlap,SpUsage" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <com.liuyijiang.asthmahelper.tool.SettingTitleView
+                android:id="@+id/setting_clear_data"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/second_title_height"
+                android:paddingStart="@dimen/second_title_padding_left"
+                android:paddingEnd="@dimen/second_title_padding_right"
+                android:gravity="center_vertical"
+                android:background="@drawable/bg_title_click_with_top_border"
+                android:text="@string/title_clear_data"
+                android:textSize="@dimen/context_title"
+                android:textColor="@drawable/text_color_click"
+                android:drawablePadding="@dimen/second_title_icon_padding"
+                app:drawable_src_left="@mipmap/eraser"
+                app:drawable_width_left="@dimen/second_title_icon_width"
+                app:drawable_height_left="@dimen/second_title_icon_height"
+                tools:ignore="SpUsage" />
+
+            <!--<TextView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="@dimen/title_height"-->
+                <!--android:text="@string/title_app_permission"-->
+                <!--android:background="@drawable/top_border_dark_bg_almost_light"-->
+                <!--android:textColor="@color/dark_gray"-->
+                <!--android:textSize="@dimen/context_title"-->
+                <!--android:gravity="center_vertical"-->
+                <!--android:paddingStart="@dimen/title_padding_left"-->
+                <!--tools:ignore="RtlSymmetry,SpUsage" />-->
+
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="@dimen/second_title_height"-->
+                <!--android:orientation="horizontal"-->
+                <!--android:paddingEnd="@dimen/second_title_padding_right"-->
+                <!--android:background="@drawable/top_border_dark_bg_white"-->
+                <!--tools:ignore="RtlSymmetry">-->
+
+                <!--<com.liuyijiang.asthmahelper.tool.SettingTitleView-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="@dimen/second_title_height"-->
+                    <!--android:paddingStart="@dimen/second_title_padding_left"-->
+                    <!--android:paddingTop="@dimen/wide_line"-->
+                    <!--android:gravity="center_vertical"-->
+                    <!--android:background="@drawable/top_border_dark_bg_white"-->
+                    <!--android:text="@string/title_gps"-->
+                    <!--android:textSize="@dimen/context_title"-->
+                    <!--android:textColor="@color/black"-->
+                    <!--android:drawablePadding="@dimen/second_title_icon_padding"-->
+                    <!--app:drawable_src_left="@mipmap/gps"-->
+                    <!--app:drawable_width_left="@dimen/second_title_icon_width"-->
+                    <!--app:drawable_height_left="@dimen/second_title_icon_height"-->
+                    <!--android:layout_weight="1"-->
+                    <!--tools:ignore="SpUsage" />-->
+
+                <!--<Switch-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:track="@drawable/switch_bar"-->
+                    <!--android:thumb="@drawable/switch_thumb"-->
+                    <!--android:textOn=""-->
+                    <!--android:textOff=""-->
+                    <!--android:switchMinWidth="10dp"/>-->
+
+            <!--</LinearLayout>-->
+
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="@dimen/second_title_height"-->
+                <!--android:orientation="horizontal"-->
+                <!--android:paddingEnd="@dimen/second_title_padding_right"-->
+                <!--android:background="@drawable/top_border_dark_bg_white"-->
+                <!--tools:ignore="RtlSymmetry">-->
+
+                <!--<com.liuyijiang.asthmahelper.tool.SettingTitleView-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="@dimen/second_title_height"-->
+                    <!--android:paddingStart="@dimen/second_title_padding_left"-->
+                    <!--android:paddingTop="@dimen/wide_line"-->
+                    <!--android:gravity="center_vertical"-->
+                    <!--android:background="@drawable/top_border_dark_bg_white"-->
+                    <!--android:text="@string/title_internet"-->
+                    <!--android:textSize="@dimen/context_title"-->
+                    <!--android:textColor="@color/black"-->
+                    <!--android:drawablePadding="@dimen/second_title_icon_padding"-->
+                    <!--app:drawable_src_left="@mipmap/internet"-->
+                    <!--app:drawable_width_left="@dimen/second_title_icon_width"-->
+                    <!--app:drawable_height_left="@dimen/second_title_icon_height"-->
+                    <!--android:layout_weight="1"-->
+                    <!--tools:ignore="SpUsage" />-->
+
+                <!--<Switch-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:track="@drawable/switch_bar"-->
+                    <!--android:thumb="@drawable/switch_thumb"-->
+                    <!--android:textOn=""-->
+                    <!--android:textOff=""-->
+                    <!--android:switchMinWidth="10dp"/>-->
+
+            <!--</LinearLayout>-->
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/title_height"
+                android:text="@string/title_about"
+                android:background="@drawable/top_border_dark_bg_almost_light"
+                android:textColor="@color/dark_gray"
+                android:textSize="@dimen/context_title"
+                android:gravity="center_vertical"
+                android:paddingStart="@dimen/title_padding_left"
+                tools:ignore="RtlSymmetry,SpUsage" />
+
+            <com.liuyijiang.asthmahelper.tool.SettingTitleView
+                android:id="@+id/setting_about_asthma_helper"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/second_title_height"
+                android:paddingStart="@dimen/second_title_padding_left"
+                android:paddingEnd="@dimen/second_title_padding_right"
+                android:gravity="center_vertical"
+                android:background="@drawable/bg_title_click"
+                android:text="@string/title_about_asthma_helper"
+                android:textSize="@dimen/context_title"
+                android:textColor="@drawable/text_color_click"
+                android:drawablePadding="@dimen/second_title_icon_padding"
+                app:drawable_src_left="@mipmap/icon"
+                app:drawable_width_left="@dimen/second_title_icon_width"
+                app:drawable_height_left="@dimen/second_title_icon_height"
+                tools:ignore="SpUsage" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

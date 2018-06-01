@@ -1,0 +1,33 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <declare-styleable name="SettingTitleView">
+        <attr name="drawable_src_left" format="reference" />
+        <attr name="drawable_src_right" format="reference" />
+        <attr name="drawable_src_top" format="reference" />
+        <attr name="drawable_src_bottom" format="reference" />
+        <attr name="drawable_height_left" format="dimension" />
+        <attr name="drawable_width_left" format="dimension" />
+        <attr name="drawable_height_right" format="dimension" />
+        <attr name="drawable_width_right" format="dimension" />
+        <attr name="drawable_height_top" format="dimension" />
+        <attr name="drawable_width_top" format="dimension" />
+        <attr name="drawable_height_bottom" format="dimension" />
+        <attr name="drawable_width_bottom" format="dimension" />
+        <attr name="text_margin_start" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="ExtraSeekBar">
+        <attr name="start_point" format="integer" />
+        <attr name="num_tag_id" format="reference" />
+        <attr name="slide_bar_id" format="reference" />
+    </declare-styleable>
+
+</resources>

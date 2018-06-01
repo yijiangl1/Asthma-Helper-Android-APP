@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/half_map_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2">
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/light_gray"
+        android:orientation="vertical">
+
+        <com.liuyijiang.asthmahelper.tool.MultiLinesRadioGroup
+            android:id="@+id/show_mode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryDark"
+            android:alpha="0.7"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.2"/>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1">
+
+                <RadioButton
+                    android:id="@+id/air_pollution_radio_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/title_air_pollution"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1">
+
+                <RadioButton
+                    android:id="@+id/pollen_count_radio_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/title_pollen_count"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.2"/>
+
+        </com.liuyijiang.asthmahelper.tool.MultiLinesRadioGroup>
+
+        <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="2dp"-->
+            <!--android:background="@color/colorPrimaryDark"/>-->
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/select_address"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:paddingStart="10dp"
+                android:paddingEnd="40dp"
+                android:background="@color/white"
+                android:alpha="0.8"
+                android:gravity="center_vertical"
+                android:ellipsize="end"
+                android:textColor="@color/second_light_gray"
+                android:textSize="@dimen/context"/>
+
+            <ImageView
+                android:id="@+id/cancel_button"
+                android:layout_width="21dp"
+                android:layout_height="21dp"
+                android:src="@mipmap/cancel"
+                android:layout_marginTop="7dp"
+                android:layout_marginEnd="10dp"
+                android:layout_alignTop="@+id/select_address"
+                android:layout_alignEnd="@+id/select_address"
+                android:alpha="0.5"
+                android:visibility="invisible"
+                tools:ignore="ContentDescription" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tip_title"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+
+            android:textSize="@dimen/context"
+            android:textColor="@color/colorPrimaryDark"
+            android:background="@color/light_gray"
+
+            android:gravity="center"/>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/tips_area"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tip_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingTop="5dp"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:paddingBottom="5dp"
+                    android:background="@color/white"
+                    android:textSize="@dimen/context"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:gravity="center_vertical"/>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+</LinearLayout>

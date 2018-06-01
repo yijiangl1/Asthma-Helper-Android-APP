@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_page"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/map_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </RelativeLayout>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="75dp">
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:alpha="0.8"
+            android:gravity="center"
+            android:text="@string/tag_start_point"
+            android:textColor="@color/black"
+            android:textSize="@dimen/context" />
+
+        <TextView
+            android:layout_width="@dimen/medium_line"
+            android:layout_height="match_parent"
+            android:background="@color/almost_light_gray"/>
+
+        <TextView
+            android:id="@+id/start_point_address"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingStart="10dp"
+            android:paddingEnd="40dp"
+            android:background="@color/white"
+            android:alpha="0.8"
+            android:gravity="center_vertical"
+            android:ellipsize="end"
+            android:textColor="@color/second_light_gray"
+            android:textSize="@dimen/context"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/destination_layout"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="75dp">
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:alpha="0.8"
+            android:gravity="center"
+            android:text="@string/tag_destination"
+            android:textColor="@color/black"
+            android:textSize="@dimen/context" />
+
+        <TextView
+            android:layout_width="@dimen/medium_line"
+            android:layout_height="match_parent"
+            android:background="@color/almost_light_gray"/>
+
+        <TextView
+            android:id="@+id/destination_address"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingStart="10dp"
+            android:paddingEnd="40dp"
+            android:background="@color/white"
+            android:alpha="0.8"
+            android:gravity="center_vertical"
+            android:ellipsize="end"
+            android:textColor="@color/second_light_gray"
+            android:textSize="@dimen/context"/>
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/search_button"
+        android:layout_width="55dp"
+        android:layout_height="75dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="12dp"
+        android:paddingTop="13dp"
+        android:paddingBottom="10dp"
+        android:paddingStart="5dp"
+        android:paddingEnd="10dp"
+        android:background="@drawable/image_click"
+        android:alpha="0.8"
+        android:src="@mipmap/search"
+        android:scaleType="fitXY"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/cancel_button_start"
+        android:layout_width="21dp"
+        android:layout_height="21dp"
+        android:src="@mipmap/cancel"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="18dp"
+        android:layout_alignTop="@+id/search_button"
+        android:layout_toStartOf="@+id/search_button"
+        android:alpha="0.5"
+        android:visibility="invisible"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/cancel_button_destination"
+        android:layout_width="21dp"
+        android:layout_height="21dp"
+        android:src="@mipmap/cancel"
+        android:layout_marginTop="47dp"
+        android:layout_marginEnd="18dp"
+        android:layout_alignTop="@+id/search_button"
+        android:layout_toStartOf="@+id/search_button"
+        android:alpha="0.5"
+        android:visibility="invisible"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/map_setting_switch"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:src="@mipmap/gear_of_map"
+        android:layout_below="@+id/destination_layout"
+        android:layout_alignStart="@+id/destination_layout"
+        android:layout_marginTop="10dp"
+        android:alpha="0.8"
+        tools:ignore="ContentDescription" />
+
+    <RelativeLayout
+        android:id="@+id/map_setting"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/destination_layout"
+        android:layout_alignEnd="@+id/search_button"
+        android:layout_below="@+id/destination_layout"
+        android:layout_marginTop="10dp"
+        android:alpha="0.8"
+        android:background="@color/colorPrimaryDark"
+        android:visibility="invisible">
+
+        <ImageView
+            android:id="@+id/back_arrow"
+            android:layout_width="25dp"
+            android:layout_height="match_parent"
+            android:src="@mipmap/white_back_arrow"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="6dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp"
+            android:layout_alignBottom="@+id/guide_mode"
+            android:scaleType="fitStart"
+            tools:ignore="ContentDescription" />
+
+        <RadioGroup
+            android:id="@+id/travel_mode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:alpha="0.8"
+            android:layout_toStartOf="@+id/vertical_separator"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radio_driving"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/tag_driving" />
+
+            <RadioButton
+                android:id="@+id/radio_walking"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/tag_walking" />
+
+            <RadioButton
+                android:id="@+id/radio_bicycling"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/tag_bicycling" />
+
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/horizontal_separator"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/medium_line"
+            android:layout_below="@+id/travel_mode"
+            android:layout_toStartOf="@+id/vertical_separator"
+            android:background="@color/light_gray"/>
+
+        <TextView
+            android:id="@+id/vertical_separator"
+            android:layout_width="@dimen/medium_line"
+            android:layout_height="match_parent"
+            android:layout_toStartOf="@+id/back_arrow"
+            android:layout_alignBottom="@+id/guide_mode"
+            android:background="@color/light_gray"/>
+
+        <com.liuyijiang.asthmahelper.tool.MultiLinesRadioGroup
+            android:id="@+id/guide_mode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:alpha="0.8"
+            android:layout_toStartOf="@+id/vertical_separator"
+            android:layout_below="@+id/horizontal_separator"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/radio_shortest"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tag_shortest" />
+
+                <RadioButton
+                    android:id="@+id/radio_less_air_pollution"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tag_less_air_pollution" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/radio_less_pollen_count"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tag_less_pollen_count" />
+
+                <RadioButton
+                    android:id="@+id/radio_combination"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tag_combination" />
+
+            </LinearLayout>
+
+        </com.liuyijiang.asthmahelper.tool.MultiLinesRadioGroup>
+
+    </RelativeLayout>
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/map_setting"
+        android:layout_marginTop="10dp"
+        android:indeterminate="true"
+        android:visibility="invisible"
+        style="@android:style/Widget.ProgressBar.Large"/>
+
+</RelativeLayout>

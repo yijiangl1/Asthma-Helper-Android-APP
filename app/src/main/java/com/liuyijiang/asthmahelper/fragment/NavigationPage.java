@@ -81,6 +81,7 @@ public class NavigationPage extends Fragment implements OnMapReadyCallback {
 
     private LatLng startPoint;
     private LatLng destination;
+    private boolean navigate = false;
 
     private ImageView buttonCancelStart;
     private ImageView buttonCancelDestination;
@@ -184,6 +185,41 @@ public class NavigationPage extends Fragment implements OnMapReadyCallback {
             case COMBINATION:
                 groupGuideMode.check(R.id.radio_combination);
                 break;
+        }
+    }
+
+    public void updateRoute() {
+        if (navigate) {
+            if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION)) {
+                    new AlertDialog.Builder(getActivity())
+                            .setTitle("Location Permission Needed")
+                            .setMessage("The function you are using needs Location Permission, please accept.")
+                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    //Prompt the user once explanation has been shown
+                                    ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, PERMISSIONS_ACCESS_FINE_LOCATION );
+                                }
+                            })
+                            .create()
+                            .show();
+                } else {
+                    ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, PERMISSIONS_ACCESS_FINE_LOCATION);
+                }
+            } else {
+                mFusedLocationClient.getLastLocation().addOnSuccessListener(getActivity(), new OnSuccessListener<Location>() {
+                    @Override
+                    public void onSuccess(Location location) {
+                        if (location != null) {
+                            myLocation = new LatLng(location.getLatitude(), location.getLongitude());
+                            guideTheWay(startPoint, destination, myLocation);
+                        } else {
+                            Toast.makeText(getActivity(), "Cannot get your current location", Toast.LENGTH_LONG).show();
+                        }
+                    }
+                });
+            }
         }
     }
 
@@ -509,6 +545,7 @@ public class NavigationPage extends Fragment implements OnMapReadyCallback {
 
     private void guideTheWay(LatLng start, LatLng end) {
 //        LatLngBounds bounds = getBounds(start, end);
+        navigate = true;
         final String urlString = getRequestUrl(start, end);
         new Thread(new Runnable() {
             @Override
@@ -534,6 +571,32 @@ public class NavigationPage extends Fragment implements OnMapReadyCallback {
         }).start();
 //        String info = String.format(Locale.ENGLISH, "From (%f, %f) to (%f, %f)", start.latitude, start.longitude, end.latitude, end.longitude);
 //        Toast.makeText(getActivity(), info, Toast.LENGTH_LONG).show();
+    }
+
+    private void guideTheWay(LatLng start, LatLng end, LatLng wayPoint) {
+        final String urlString = getRequestUrl(start, end, wayPoint);
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                String data = downloadJson(urlString);
+                try {
+                    JSONObject jsonObject = new JSONObject(data);
+                    final List<List<HashMap<String, String>>> routes = parseJson(jsonObject);
+                    getActivity().runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            drawOnMap(routes);
+                            imageSearch.setOnClickListener(navigationPageClickListener);
+                            textStartPoint.setOnClickListener(navigationPageClickListener);
+                            textDestination.setOnClickListener(navigationPageClickListener);
+                            progressBar.setVisibility(View.INVISIBLE);
+                        }
+                    });
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
     }
 
     private void drawOnMap(List<List<HashMap<String, String>>> result) {
@@ -810,6 +873,36 @@ public class NavigationPage extends Fragment implements OnMapReadyCallback {
         }
         String key = String.format(Locale.ENGLISH, "key=%s", API_KEY);
         String parameters = origin + "&" + dest + "&" + mode + "&" + alternatives + "&" + key;
+        String outputFormat = "json";
+        String api = "https://maps.googleapis.com/maps/api/directions/";
+        return String.format(Locale.ENGLISH, "%s%s?%s", api, outputFormat, parameters);
+    }
+
+    private String getRequestUrl(LatLng start, LatLng end, LatLng wayPoint) {
+        String origin = "origin=" + start.latitude + "," + start.longitude;
+        String dest = "destination=" + end.latitude + "," + end.longitude;
+        String waypoints = "waypoints=" + wayPoint.latitude + "," + wayPoint.longitude;
+        String mode = "mode=driving";
+        String alternatives;
+        int travelMode = config.getInt(TRAVEL_MODE, DRIVING);
+        switch (travelMode) {
+            case DRIVING:
+                mode = "mode=driving";
+                break;
+            case WALKING:
+                mode = "mode=walking";
+                break;
+            case BICYCLING:
+                mode = "mode=bicycling";
+                break;
+        }
+        if (config.getInt(GUIDE_MODE, COMBINATION) == 1) {
+            alternatives = "alternatives=false";
+        } else {
+            alternatives = "alternatives=true";
+        }
+        String key = String.format(Locale.ENGLISH, "key=%s", API_KEY);
+        String parameters = origin + "&" + dest + "&" + waypoints + "&" + mode + "&" + alternatives + "&" + key;
         String outputFormat = "json";
         String api = "https://maps.googleapis.com/maps/api/directions/";
         return String.format(Locale.ENGLISH, "%s%s?%s", api, outputFormat, parameters);

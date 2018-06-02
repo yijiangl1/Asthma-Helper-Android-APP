@@ -139,6 +139,7 @@ public class MainActivity extends Activity implements View.OnClickListener, Init
                 boolean state = bundle.getBoolean("state");
                 if (state) {
                     pageMain.initView();
+                    pageNavigation.updateRoute();
                 }
             }
         }
